@@ -1,0 +1,17 @@
+body {
+    background-color: #111;
+}
+
+.whole {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.env {
+    width: 60%;
+}
+
+.playlist {
+    width: 40%;
+}

@@ -1,0 +1,4 @@
+youtube-dl.exe -j https://www.youtube.com/watch?v=rmw2YeczWy0 | python.exe -c "import sys, json; print(json.load(sys.stdin)['uploader'])"
+youtube-dl.exe --get-title https://www.youtube.com/watch?v=rmw2YeczWy0
+youtube-dl.exe -j https://www.youtube.com/watch?v=rmw2YeczWy0 | python.exe -c "import sys, json; print(json.load(sys.stdin)['duration'])"
+

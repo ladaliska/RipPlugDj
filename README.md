@@ -1,4 +1,4 @@
-# RipPlugDj
+# RipPlugDj (commandy, který si nechci pamatovat)
 
 ## Start WebServer
 php -S localhost:8000
@@ -11,3 +11,5 @@ set path=C:\xampp\php\php.exe;c:/xampp/bin/php
 
 ## Build
 docker-compose up -d --build
+
+# Pro spuštění stačí stáhnout repo a v cmd pustit Build... Běží na localhost:3000 nebo na https://test.starraria.eu (není updatovaná ale funkce to má stejné)

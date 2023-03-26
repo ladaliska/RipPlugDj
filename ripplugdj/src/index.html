@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *,
+    *:before,
+    *:after {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #111;
+    }
+
+    .popup {
+      background-color: #ffffff;
+      width: 450px;
+      padding: 30px 40px;
+      position: absolute;
+      transform: translate(-50%, -50%);
+      left: 50%;
+      top: 50%;
+      border-radius: 8px;
+      font-family: "Poppins", sans-serif;
+      display: none;
+      text-align: center;
+    }
+
+    .popup button {
+      display: block;
+      margin: 0 0 20px auto;
+      background-color: transparent;
+      font-size: 30px;
+      color: #c5c5c5;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .popup p {
+      font-size: 14px;
+      text-align: justify;
+      margin: 20px 0;
+      line-height: 25px;
+    }
+
+    a {
+      display: block;
+      width: 150px;
+      position: relative;
+      margin: 10px auto;
+      text-align: center;
+      background-color: #0f72e5;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 5px 0;
+    }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+    }
+  }
+</script>
+</head>
+
+<body>
+  <div class="popup">
+    <button id="close">&times;</button>
+    <h2>KLIKNI!</h2>
+    <p>
+      
+    </p>
+    <a id="closed" href="#">Let's Go</a>
+  </div>
+  <div id="player"></div>
+  <div id="whole">
+    <div id="env">
+      <br id="spacer">
+      <script>
+        window.addEventListener("load", function () {
+          setTimeout(
+            function open(event) {
+              document.querySelector(".popup").style.display = "block";
+            },
+            100
+          )
+        });
+        document.querySelector("#close").addEventListener("click", function () {
+          document.querySelector(".popup").style.display = "none";
+        });
+        document.querySelector("#closed").addEventListener("click", function () {
+          document.querySelector(".popup").style.display = "none";
+        });
+        </script>
+      <input id="slide" type="range" min="0" max="100" step="1" value="10" onchange="updateSlider(this.value)">
+      </br>
+      <script type="module" src="./iframe.js">
+      </script>
+      
+    </div>
+    <div id="playlist">
+      <div id="head">
+        <p></p>
+      </div>
+      <div id="cont"></div>
+    </div>
+  </div>
+</body>
+
+</html>

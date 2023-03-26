@@ -13,3 +13,5 @@ set path=C:\xampp\php\php.exe;c:/xampp/bin/php
 docker-compose up -d --build
 
 # Pro spuštění stačí stáhnout repo a v cmd pustit Build... Běží na localhost:3000 nebo na https://test.starraria.eu (není updatovaná ale funkce to má stejné)
+To popup okno je kvůli Google který zakázali autoplay se zvukem... 
+https://developer.chrome.com/blog/autoplay/

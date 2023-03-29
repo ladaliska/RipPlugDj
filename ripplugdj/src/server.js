@@ -47,7 +47,6 @@ function second(){
 
 function timer(){
     var call = setInterval(()=>{
-      console.log(sec, "s")
       sec++
       if(sec == json[count]["lenght"]){
         console.log("song ended")

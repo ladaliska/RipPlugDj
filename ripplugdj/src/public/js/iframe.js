@@ -5,7 +5,7 @@ var tag = document.createElement('script');
     var firstScriptTag = document.getElementsByTagName('script')[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 function script() {
-    const manager = new Manager("localhost:3000");
+    const manager = new Manager("test.starraria.eu");
 
     const socket = manager.socket("/"); // main namespace
 

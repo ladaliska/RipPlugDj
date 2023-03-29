@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/index.css">
+  <script type="importmap">
+  {
+    "imports": {
+      "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+    }
+  }
+</script>
+</head>
+
+<body>
+  <div class="popup">
+    <button id="close">&times;</button>
+    <h2>KLIKNI!</h2>
+    <p>
+      
+    </p>
+    <a id="closed" href="#">Let's Go</a>
+  </div>
+  <div id="player"></div>
+  <div id="whole">
+    <div id="env">
+      <br id="spacer">
+      <script>
+        window.addEventListener("load", function () {
+          setTimeout(
+            function open(event) {
+              document.querySelector(".popup").style.display = "block";
+            },
+            100
+          )
+        });
+        document.querySelector("#close").addEventListener("click", function () {
+          document.querySelector(".popup").style.display = "none";
+        });
+        document.querySelector("#closed").addEventListener("click", function () {
+          document.querySelector(".popup").style.display = "none";
+        });
+        </script>
+      <input id="slide" type="range" min="0" max="100" step="1" value="10" onchange="updateSlider(value)">
+      </br>
+      <script type="module" src="./js/iframe.js">
+      </script>
+      
+    </div>
+    <div id="playlist">
+      <div id="head">
+        <p></p>
+      </div>
+      <div id="cont"></div>
+    </div>
+  </div>
+</body>
+
+</html>

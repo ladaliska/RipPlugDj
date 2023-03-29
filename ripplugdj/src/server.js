@@ -52,8 +52,8 @@ function timer(){
       if(sec == json[count]["lenght"]){
         console.log("song ended")
         clearInterval(call)
-        count++
         sec=0
+        isRunning = 0
       }
     }, 1000)
 }

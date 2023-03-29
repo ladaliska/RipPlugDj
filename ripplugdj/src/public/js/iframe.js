@@ -23,12 +23,12 @@ document.getElementById('close').onclick = function () {
 function createVideo(value, time) {
     player = new YT.Player('player', {
         videoId: value, // YouTube Video ID
-        width: 560, // Player width (in px)
-        height: 316, // Player height (in px)
+        width: 1920, // Player width (in px)
+        height: 1080, // Player height (in px)
         playerVars: {
             start: time,
             autoplay: 1, // Auto-play the video on load
-            controls: 1, // Show pause/play buttons in player
+            controls: 0, // Show pause/play buttons in player
             showinfo: 0, // Hide the video title
             modestbranding: 1, // Hide the Youtube Logo
             loop: 1, // Run the video in a loop

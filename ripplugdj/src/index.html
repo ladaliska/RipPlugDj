@@ -8,47 +8,26 @@
   <title>Document</title>
   <link rel="stylesheet" href="./css/index.css">
   <script type="importmap">
-  {
-    "imports": {
-      "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+    {
+      "imports": {
+        "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+      }
     }
-  }
-</script>
+  </script>
+  <script type="text/javascript" id="www-widgetapi-script" src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js" async=""></script>
+<script src="https://www.youtube.com/player_api"></script>
 </head>
 
 <body>
-  <div class="popup">
-    <button id="close">&times;</button>
-    <h2>KLIKNI!</h2>
-    <p>
-      
-    </p>
-    <a id="closed" href="#">Let's Go</a>
-  </div>
+  <script type="module" src="./js/iframe.js"></script>
   <div id="player"></div>
   <div id="whole">
     <div id="env">
       <br id="spacer">
-      <script>
-        window.addEventListener("load", function () {
-          setTimeout(
-            function open(event) {
-              document.querySelector(".popup").style.display = "block";
-            },
-            100
-          )
-        });
-        document.querySelector("#close").addEventListener("click", function () {
-          document.querySelector(".popup").style.display = "none";
-        });
-        document.querySelector("#closed").addEventListener("click", function () {
-          document.querySelector(".popup").style.display = "none";
-        });
-        </script>
-      <input id="slide" type="range" min="0" max="100" step="1" value="10" onchange="updateSlider(value)">
-      </br>
-      <script type="module" src="./js/iframe.js">
-      </script>
+      <input id="slide" type="range" min="0" max="100" step="1" value="10">
+      <input type="text" id="field" value="" />
+      <button id="submit">insert</button>
+      <br id="sub">
       
     </div>
     <div id="playlist">

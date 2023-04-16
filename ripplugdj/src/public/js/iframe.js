@@ -1,66 +1,103 @@
 import { Manager } from "socket.io-client"
-var player;
-var tag = document.createElement('script');
+
+const manager = new Manager("ws://localhost:3000", {rejectUnauthorized: false});
+
+const socket = manager.socket("/"); // main namespace
+
+console.log("running")
+loadYoutubeIFrameApiScript();
+
+function loadYoutubeIFrameApiScript() {
+  console.log("called load")
+    const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
-    var firstScriptTag = document.getElementsByTagName('script')[0];
+
+    const firstScriptTag = document.getElementsByTagName("script")[0];
     firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-function script() {
-    const manager = new Manager("https://test.starraria.eu");
 
-    const socket = manager.socket("/"); // main namespace
+    tag.onload = call();
+  }
 
-    socket.on("song", (res) => {
-            createVideo(res["code"], res["sec"])
+
+function call(){
+  console.log("loaded")
+  socket.emit("ready");
+}
+socket.on("song", (res) => {
+    console.log("answer song - ", res)
+    setupPlayer(res["code"], res["sec"])
+});
+
+socket.on("clear", () => {
+  console.log("clear");
+  prepfornext();
+})
+
+socket.on("empty", () => {
+  console.log("empty playlist")
+})
+
+    let player = null;
+    function setupPlayer(id, time) {  
+    YT.ready(function() {
+        player = new window.YT.Player('player', {
+            videoId: id, // YouTube Video ID
+            width: 420, // Player width (in px)
+            height: 380, // Player height (in px)
+            playerVars: {
+                start: time,
+                autoplay: 1, // Auto-play the video on load
+                controls: 0, // Show pause/play buttons in player
+                showinfo: 0, // Hide the video title
+                modestbranding: 1, // Hide the Youtube Logo
+                loop: 1, // Run the video in a loop
+                fs: 0, // Hide the full screen button
+                cc_load_policy: 0, // Hide closed captions
+                iv_load_policy: 3, // Hide the Video Annotations
+                autohide: 0, // Hide video controls when playing
+                mute: 0
+            },
+            events: {
+                'onReady': onPlayerReady,
+                'onStateChange': onPlayerStateChange
+    
+            }
         });
+      });
+  
+    function onPlayerStateChange(event) {
+      var videoStatuses = Object.entries(window.YT.PlayerState);
+      console.log(videoStatuses.find(status => status[1] === event.data)[0]);
+      if (videoStatuses.find(status => status[1] === event.data)[0] == "ENDED"){
+        prepfornext();
+      }
+      else if (videoStatuses.find(status => status[1] === event.data)[0] == "PAUSED"){
+        player.playVideo();
+      }
     }
-document.getElementById('closed').onclick = function () {
-    script();
-};
-document.getElementById('close').onclick = function () {
-    script();
-}; 
+  }
+    function onPlayerReady(event) {
+        console.log("hey Im ready");
+        event.target.unMute();
+        event.target.setVolume(slide.value);
+        event.target.playVideo()
+    }
 
-function createVideo(value, time) {
-    player = new YT.Player('player', {
-        videoId: value, // YouTube Video ID
-        width: 1920, // Player width (in px)
-        height: 1080, // Player height (in px)
-        playerVars: {
-            start: time,
-            autoplay: 1, // Auto-play the video on load
-            controls: 0, // Show pause/play buttons in player
-            showinfo: 0, // Hide the video title
-            modestbranding: 1, // Hide the Youtube Logo
-            loop: 1, // Run the video in a loop
-            fs: 0, // Hide the full screen button
-            cc_load_policy: 0, // Hide closed captions
-            iv_load_policy: 3, // Hide the Video Annotations
-            autohide: 0, // Hide video controls when playing
-            mute: 0
-        },
-        events: {
-            'onReady': onPlayerReady,
-            'onStateChange': onPlayerStateChange
-
-        }
-    });
-}
-function updateSlider(value) {
-    player.setVolume(value);
-}
-function onYouTubeIframeAPIReady() {
-    document.getElementById("player").setAttribute("allow:", autoplay);
-    console.log("Ok")
+function prepfornext(){
+  var newplayer = document.createElement("div")
+  newplayer.setAttribute("id", "player")
+  document.getElementById("player").replaceWith(newplayer)
 }
 
-function onPlayerReady(event) {
-    console.log("hey Im ready");
-    event.target.unMute();
-    event.target.setVolume(slide.value);
-    event.target.playVideo();
+var slide = document.getElementById("slide")
+slide.onchange = function updateSlider() {
+  player.setVolume(slide.value);
+}
+  
+var field = document.getElementById("field")
+var submit = document.getElementById("submit")
+submit.onclick = function insert(){
+  console.log("click")
+  socket.emit("insert", field.value)
 }
 
-
-function onPlayerStateChange(event) {
-    event.target.playVideo();
-}

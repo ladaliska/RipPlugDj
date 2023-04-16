@@ -1,6 +1,6 @@
 import { Manager } from "socket.io-client"
 
-const manager = new Manager("ws://localhost:3000", {rejectUnauthorized: false});
+const manager = new Manager("https://test.starraria.eu");
 
 const socket = manager.socket("/"); // main namespace
 
@@ -8,7 +8,7 @@ console.log("running")
 loadYoutubeIFrameApiScript();
 
 function loadYoutubeIFrameApiScript() {
-  console.log("called load")
+  
     const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
 
@@ -20,21 +20,17 @@ function loadYoutubeIFrameApiScript() {
 
 
 function call(){
-  console.log("loaded")
   socket.emit("ready");
 }
 socket.on("song", (res) => {
-    console.log("answer song - ", res)
     setupPlayer(res["code"], res["sec"])
 });
 
 socket.on("clear", () => {
-  console.log("clear");
   prepfornext();
 })
 
 socket.on("empty", () => {
-  console.log("empty playlist")
 })
 
     let player = null;
@@ -67,7 +63,6 @@ socket.on("empty", () => {
   
     function onPlayerStateChange(event) {
       var videoStatuses = Object.entries(window.YT.PlayerState);
-      console.log(videoStatuses.find(status => status[1] === event.data)[0]);
       if (videoStatuses.find(status => status[1] === event.data)[0] == "ENDED"){
         prepfornext();
       }
@@ -77,7 +72,6 @@ socket.on("empty", () => {
     }
   }
     function onPlayerReady(event) {
-        console.log("hey Im ready");
         event.target.unMute();
         event.target.setVolume(slide.value);
         event.target.playVideo()
@@ -97,7 +91,6 @@ slide.onchange = function updateSlider() {
 var field = document.getElementById("field")
 var submit = document.getElementById("submit")
 submit.onclick = function insert(){
-  console.log("click")
   socket.emit("insert", field.value)
 }
 

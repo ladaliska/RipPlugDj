@@ -83,7 +83,6 @@ function insert(url){
   }).then(function() {
       feed = {title:title, code:code, length: len, order:obj.length}
       obj.push(feed)
-      console.log(obj)
       if (isRunning != 1){
       second()}
       })

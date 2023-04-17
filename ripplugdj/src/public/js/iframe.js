@@ -1,6 +1,6 @@
 import { Manager } from "socket.io-client"
 
-const manager = new Manager("ws://localhost:3000", {rejectUnauthorized: false});
+const manager = new Manager("https://test.starraria.eu");
 
 const socket = manager.socket("/"); // main namespace
 
@@ -29,7 +29,6 @@ socket.on("song", (res) => {
 });
 
 socket.on("clear", () => {
-  console.log("clear");
   prepfornext();
 })
 
@@ -67,7 +66,6 @@ socket.on("empty", () => {
   
     function onPlayerStateChange(event) {
       var videoStatuses = Object.entries(window.YT.PlayerState);
-      console.log(videoStatuses.find(status => status[1] === event.data)[0]);
       if (videoStatuses.find(status => status[1] === event.data)[0] == "ENDED"){
         prepfornext();
       }
@@ -97,7 +95,6 @@ slide.onchange = function updateSlider() {
 var field = document.getElementById("field")
 var submit = document.getElementById("submit")
 submit.onclick = function insert(){
-  console.log("click")
   socket.emit("insert", field.value)
 }
 

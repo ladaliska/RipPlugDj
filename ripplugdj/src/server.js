@@ -102,7 +102,7 @@ io.on("connection", (socket)=>{
     }
     else if (event == "ready"){
       console.log("hes readyyyyyy")
-      second(socket)
+      second()
     }
     else if(event == "insert"){
       console.log(arg)

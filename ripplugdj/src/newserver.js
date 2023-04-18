@@ -115,7 +115,7 @@ function sendPlaylist(socket){
 io.on("connection", (socket)=>{
   socket.onAny((event, arg) => {
     if (event == "connection"){
-      console.log(socket)
+      console.log("connected:",socket)
     }
     else if (event == "ready"){
       sendPlaylist(socket)

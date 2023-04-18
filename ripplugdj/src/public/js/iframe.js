@@ -1,6 +1,6 @@
 import { Manager } from "socket.io-client"
 
-const manager = new Manager("ws://localhost:3000", {rejectUnauthorized: false});
+const manager = new Manager("https://test.starraria.eu");
 
 const socket = manager.socket("/"); // main namespace
 

@@ -57,7 +57,6 @@ function sendSongToAll(){
 
 function sendSongOnConnection(socket){
     if(count < obj.length){
-        isRunning = 1
         socket.emit("song", actualSong())
     }
     else {
@@ -98,18 +97,26 @@ function insert(url){
         }
     })}
 
-function sendPlaylist(){
+function sendPlaylist(socket){
+  if (socket == null){
     let playlist = []
     for (let i = count; i < obj.length; i++) {
       playlist.push(obj[i]["title"])
     }
-    io.emit("playlist", playlist)
+    io.emit("playlist", playlist)}
+    else {
+      let playlist = []
+    for (let i = count; i < obj.length; i++) {
+      playlist.push(obj[i]["title"])
+    }
+    socket.emit("playlist", playlist)
+    }
   }
 
 io.on("connection", (socket)=>{
   socket.onAny((event, arg) => {
     if (event == "ready"){
-      sendPlaylist()
+      sendPlaylist(socket)
       sendSongOnConnection(socket)
     }
     else if(event == "insert"){

@@ -3,6 +3,22 @@ import http from "http";
 import { Server } from "socket.io";
 import * as url from 'url';
 import ytdl from "ytdl-core"
+
+//Config load
+console.log("Loading config....");
+var config;
+const fs = require('fs');
+if(fs.existsSync()) {
+  let rawconfig = fs.readFileSync('config/config.json');
+  config = JSON.parse(rawconfig);
+} else {
+  console.log("Config not found, exiting...")
+  process.exit(1);
+}
+console.log("Config Loaded")
+
+
+
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();

@@ -7,4 +7,5 @@ WORKDIR /app
 
 RUN npm install --production
 
+RUN touch /app/config/config.json
 CMD [ "node", "newserver.js" ]

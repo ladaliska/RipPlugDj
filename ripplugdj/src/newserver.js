@@ -78,7 +78,6 @@ function timer(){
         scrap()
       }
       sec++
-      console.log(sec)
     }, 1000)
 }
 

@@ -112,12 +112,10 @@ function sendPlaylist(socket){
     }
   }
 
-server.on("connection", (socket)=>{
+io.on("connection", (socket)=>{
   socket.onAny((event, arg) => {
-    if (event == "connection"){
+    if (event == "ready"){
       console.log("connected:",socket)
-    }
-    else if (event == "ready"){
       sendPlaylist(socket)
       sendSongOnConnection(socket)
     }

@@ -58,7 +58,6 @@ function sendSongToAll(){
 function sendSongOnConnection(socket){
     if(count < obj.length){
         isRunning = 1
-        timer();
         socket.emit("song", actualSong())
     }
     else {

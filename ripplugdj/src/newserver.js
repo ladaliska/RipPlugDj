@@ -112,7 +112,7 @@ function sendPlaylist(socket){
     }
   }
 
-io.on("connection", (socket)=>{
+server.on("connection", (socket)=>{
   socket.onAny((event, arg) => {
     if (event == "connection"){
       console.log("connected:",socket)

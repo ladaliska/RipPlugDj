@@ -91,7 +91,6 @@ function insert(url){
         feed = {title:result['videoDetails']['title'], code:result['videoDetails']['videoId'], length: result['videoDetails']['lengthSeconds'], order:obj.length}
         obj.push(feed)
         sendPlaylist()
-        console.log(obj)
         if (isRunning == 0){
             sendSongToAll()
         }

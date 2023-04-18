@@ -3,6 +3,7 @@ import http from "http";
 import { Server } from "socket.io";
 import * as url from 'url';
 import ytdl from "ytdl-core"
+import fs from "fs"
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 const app = express();
@@ -54,8 +55,9 @@ function sendSongOnConnection(socket){
 }
 
 function timer(){
+  var time = obj[count]["length"]
     var call = setInterval(()=>{
-      if(sec >= obj[count]["length"]){
+      if(sec >= time){
         console.log("song ended")
         clearInterval(call)
         sec=0
@@ -64,6 +66,7 @@ function timer(){
         scrap()
       }
       sec++
+      console.log(sec)
     }, 1000)
 }
 

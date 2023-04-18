@@ -6,8 +6,8 @@ import ytdl from "ytdl-core"
 //Config load
 console.log("Loading config....");
 var config;
-const fs = require('fs');
-if(fs.existsSync()) {
+import fs from 'fs'
+if(fs.existsSync('config/config.json')) {
   let rawconfig = fs.readFileSync('config/config.json');
   config = JSON.parse(rawconfig);
 } else {

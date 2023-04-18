@@ -1,6 +1,6 @@
 import { Manager } from "socket.io-client"
 
-const manager = new Manager("https://test.starraria.eu");
+const manager = new Manager(document.URL);
 
 const socket = manager.socket("/"); // main namespace
 

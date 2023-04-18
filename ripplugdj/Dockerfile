@@ -7,4 +7,4 @@ WORKDIR /app
 
 RUN npm install --production
 
-CMD [ "node", "server.js" ]
+CMD [ "node", "newserver.js" ]

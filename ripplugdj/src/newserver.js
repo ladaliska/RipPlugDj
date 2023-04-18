@@ -3,7 +3,6 @@ import http from "http";
 import { Server } from "socket.io";
 import * as url from 'url';
 import ytdl from "ytdl-core"
-
 //Config load
 console.log("Loading config....");
 var config;
@@ -16,8 +15,6 @@ if(fs.existsSync()) {
   process.exit(1);
 }
 console.log("Config Loaded")
-
-
 
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
@@ -70,8 +67,9 @@ function sendSongOnConnection(socket){
 }
 
 function timer(){
+  var time = obj[count]["length"]
     var call = setInterval(()=>{
-      if(sec >= obj[count]["length"]){
+      if(sec >= time){
         console.log("song ended")
         clearInterval(call)
         sec=0
@@ -80,6 +78,7 @@ function timer(){
         scrap()
       }
       sec++
+      console.log(sec)
     }, 1000)
 }
 

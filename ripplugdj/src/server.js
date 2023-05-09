@@ -87,12 +87,6 @@ function insert(url){
       })
       }
 
-//io.on('song', (socket) => {
-//  console.log("socket asked")
-//  socket.emit("song", {code: "gp4z85YAqh8", sec: 0})
-//});
-
-
 io.on("connection", (socket)=>{
   socket.onAny((event, arg) => {
     if (event == "connection"){

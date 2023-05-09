@@ -71,7 +71,8 @@ socket.on("time", (arg) => {
                 cc_load_policy: 0, // Hide closed captions
                 iv_load_policy: 3, // Hide the Video Annotations
                 autohide: 0, // Hide video controls when playing
-                mute: 0
+                mute: 0,
+                vq: 240p
             },
             events: {
                 'onReady': onPlayerReady,

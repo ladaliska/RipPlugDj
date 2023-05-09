@@ -60,7 +60,7 @@ socket.on("time", (arg) => {
             width: 420, // Player width (in px)
             height: 380, // Player height (in px)
             playerVars: {
-                quality: "tiny",
+                vq: "tiny",
                 start: time,
                 autoplay: 1, // Auto-play the video on load
                 controls: 0, // Show pause/play buttons in player

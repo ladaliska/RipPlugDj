@@ -124,7 +124,7 @@ skipBtn.onclick = function insert(){
 
 function createTable(playlist){
   var table = document.getElementById("Playlist")
-  table.innerHTML = ""
+  table.textContent = ""
   playlist.forEach(function(song){
     var row = document.createElement("tr")
     var cell = document.createElement('td');

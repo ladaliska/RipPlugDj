@@ -124,13 +124,13 @@ skipBtn.onclick = function insert(){
 
 function createTable(playlist){
   var table = document.getElementById("Playlist")
-  playlist.forEach(function(){
+  table.innerHTML = ""
+  playlist.forEach(function(song){
     var row = document.createElement("tr")
     var cell = document.createElement('td');
-    cell.appendChild(document.createTextNode(cellData));
+    cell.appendChild(document.createTextNode(song));
     row.appendChild(cell);
     table.appendChild(row)
   })
-  document.body.appendChild(table);
 }
 

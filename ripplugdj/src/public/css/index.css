@@ -31,8 +31,9 @@ table{
   border: 1px solid;
   border-collapse: collapse;
 }
-table:first-child{
-  background-color: greenyellow;
+tr:first-child{
+  background-color: red;
+  color: black
 }
 tr {
   border: 1px solid

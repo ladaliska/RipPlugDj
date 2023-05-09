@@ -5,7 +5,7 @@ import * as url from 'url';
 import ytdl from "ytdl-core"
 //Config load
 console.log("Loading config....");
-var config, call;
+var config, call, Tsync;
 import fs from 'fs'
 if(fs.existsSync('config/config.json')) {
   let rawconfig = fs.readFileSync('config/config.json');
@@ -106,9 +106,10 @@ function insert(url){
         }
     })}
 
-function sync(){
-  io.emit()
-}
+  Tsync = setInterval(
+    io.emit("time", sec),5000
+  )
+
 
 function sendPlaylist(socket){
   if (socket == null){

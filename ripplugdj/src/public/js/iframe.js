@@ -41,6 +41,12 @@ socket.on("playlist", (arg) => {
   console.log(arg)
 })
 
+socket.on("time", (arg) => {
+  if ((player.getCurrentTime()-arg)>1){
+    player.seekTo(arg, true)
+  }
+})
+
     let player = null;
     function setupPlayer(id, time) {  
     YT.ready(function() {
@@ -113,7 +119,4 @@ skipBtn.onclick = function insert(){
 }
 
 var sync = document.getElementById("sync")
-sync.onclick = function insert(){
-  console.log("sync")
-  player.seekTo(0, true)
-}
+

@@ -85,6 +85,14 @@ function scrap(){
     sendPlaylist()
 }
 
+function skip(){
+  clearInterval(call)
+  sec=0
+  isRunning = 0
+  count += 1
+  scrap()
+}
+
 function insert(url){
     var data = ytdl.getBasicInfo(url)
     data.then(function (result){
@@ -123,8 +131,7 @@ io.on("connection", (socket)=>{
       insert(arg)
     }
     else if(event == "skip"){
-      scrap();
-      clearInterval(call)
+      skip()
     }
   })  
 })

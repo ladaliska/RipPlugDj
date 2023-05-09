@@ -121,5 +121,3 @@ skipBtn.onclick = function insert(){
   socket.emit("skip")
 }
 
-var sync = document.getElementById("sync")
-

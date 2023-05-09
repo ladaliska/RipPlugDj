@@ -106,3 +106,8 @@ submit.onclick = function insert(){
   socket.emit("insert", field.value)
 }
 
+var skipBtn = document.getElementById("skipBtn")
+skipBtn.onclick = function insert(){
+  console.log("skip")
+  socket.emit("skip")
+}

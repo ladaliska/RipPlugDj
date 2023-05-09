@@ -113,14 +113,18 @@ function sendPlaylist(socket){
   }
 
 io.on("connection", (socket)=>{
+  //console.log("connected:",socket["id"])
   socket.onAny((event, arg) => {
     if (event == "ready"){
-      console.log("connected:",socket)
       sendPlaylist(socket)
       sendSongOnConnection(socket)
     }
     else if(event == "insert"){
       insert(arg)
+    }
+    else if(event == "skip"){
+      clearInterval(call)
+      scrap();
     }
   })  
 })

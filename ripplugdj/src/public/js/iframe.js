@@ -42,7 +42,10 @@ socket.on("playlist", (arg) => {
 })
 
 socket.on("time", (arg) => {
+  console.log("Sync:", arg)
+  console.log("Player is On:", player.getCurrentTime())
   if ((player.getCurrentTime()-arg)>1){
+    console.log("syncing")
     player.seekTo(arg, true)
   }
 })

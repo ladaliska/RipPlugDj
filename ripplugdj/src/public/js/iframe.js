@@ -123,10 +123,10 @@ skipBtn.onclick = function insert(){
 }
 
 function createTable(playlist){
-  var table = document.createElement("table")
+  var table = document.getElementById("Playlist")
   playlist.forEach(function(){
     var row = document.createElement("tr")
-    row.appendChild(table)
+    table.appendChild(row)
   })
   document.body.appendChild(table);
 }

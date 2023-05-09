@@ -5,7 +5,7 @@ import * as url from 'url';
 import ytdl from "ytdl-core"
 //Config load
 console.log("Loading config....");
-var config;
+var config, call;
 import fs from 'fs'
 if(fs.existsSync('config/config.json')) {
   let rawconfig = fs.readFileSync('config/config.json');
@@ -66,7 +66,7 @@ function sendSongOnConnection(socket){
 
 function timer(){
   var time = obj[count]["length"]
-    var call = setInterval(()=>{
+    call = setInterval(()=>{
       if(sec >= time){
         console.log("song ended")
         clearInterval(call)

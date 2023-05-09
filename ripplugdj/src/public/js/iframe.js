@@ -126,6 +126,9 @@ function createTable(playlist){
   var table = document.getElementById("Playlist")
   playlist.forEach(function(){
     var row = document.createElement("tr")
+    var cell = document.createElement('td');
+    cell.appendChild(document.createTextNode(cellData));
+    row.appendChild(cell);
     table.appendChild(row)
   })
   document.body.appendChild(table);

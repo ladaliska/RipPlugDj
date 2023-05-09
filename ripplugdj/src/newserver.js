@@ -107,8 +107,9 @@ function insert(url){
     })}
 
   Tsync = setInterval(()=>{
-    io.emit("time", sec)},5000
-  )
+    io.emit("time", sec)
+  }, 5000)
+
 
 
 function sendPlaylist(socket){

@@ -39,6 +39,7 @@ socket.on("empty", () => {
 
 socket.on("playlist", (arg) => {
   console.log(arg)
+  clearTable()
   createTable(arg)
 })
 
@@ -124,7 +125,7 @@ skipBtn.onclick = function insert(){
 
 function createTable(playlist){
   var theTable = document.createElement('table');
-
+  theTable.setAttribute("id", "table")
   for (var i = 0, tr, td; i < playlist.length; i++) {
       tr = document.createElement('tr');
       td = document.createElement('td');
@@ -136,3 +137,7 @@ function createTable(playlist){
   document.getElementById('playlist').appendChild(theTable);
 }
 
+function clearTable(){
+  var theTable = document.getElementById("table")
+  theTable.remove()
+}

@@ -106,6 +106,10 @@ function insert(url){
         }
     })}
 
+function sync(){
+  io.emit()
+}
+
 function sendPlaylist(socket){
   if (socket == null){
     let playlist = []

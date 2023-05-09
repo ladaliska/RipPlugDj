@@ -111,3 +111,9 @@ skipBtn.onclick = function insert(){
   console.log("skip")
   socket.emit("skip")
 }
+
+var sync = document.getElementById("sync")
+sync.onclick = function insert(){
+  console.log("sync")
+  player.seekTo(0, true)
+}

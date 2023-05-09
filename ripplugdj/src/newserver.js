@@ -106,8 +106,8 @@ function insert(url){
         }
     })}
 
-  Tsync = setInterval(
-    io.emit("time", sec),5000
+  Tsync = setInterval(()=>{
+    io.emit("time", sec)},5000
   )
 
 

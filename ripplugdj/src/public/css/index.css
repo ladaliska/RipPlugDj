@@ -28,4 +28,12 @@ a {
 
 table{
   color: white;
+  border: 1px solid;
+  border-collapse: collapse;
+}
+table:first-child{
+  background-color: greenyellow;
+}
+tr {
+  border: 1px solid
 }

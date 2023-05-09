@@ -39,6 +39,7 @@ socket.on("empty", () => {
 
 socket.on("playlist", (arg) => {
   console.log(arg)
+  createTable(arg)
 })
 
 socket.on("time", (arg) => {
@@ -119,5 +120,14 @@ var skipBtn = document.getElementById("skipBtn")
 skipBtn.onclick = function insert(){
   console.log("skip")
   socket.emit("skip")
+}
+
+function createTable(playlist){
+  document.createElement("table")
+  playlist.forEach(function(){
+    var row = document.createElement("tr")
+    tableBody.appendChild(row)
+  })
+  document.body.appendChild(table);
 }
 

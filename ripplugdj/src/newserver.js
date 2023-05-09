@@ -86,11 +86,13 @@ function scrap(){
 }
 
 function skip(){
+  if(isRunning == 1){
   clearInterval(call)
   sec=0
   isRunning = 0
   count += 1
   scrap()
+  }
 }
 
 function insert(url){

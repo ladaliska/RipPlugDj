@@ -123,14 +123,16 @@ skipBtn.onclick = function insert(){
 }
 
 function createTable(playlist){
-  var table = document.getElementById("Playlist")
-  table.textContent = ""
-  playlist.forEach(function(song){
-    var row = document.createElement("tr")
-    var cell = document.createElement('td');
-    cell.appendChild(document.createTextNode(song));
-    row.appendChild(cell);
-    table.appendChild(row)
-  })
+  var theTable = document.createElement('table');
+
+  for (var i = 0, tr, td; i < playlist.length; i++) {
+      tr = document.createElement('tr');
+      td = document.createElement('td');
+      td.appendChild(document.createTextNode(playlist[i]));
+      tr.appendChild(td);
+      theTable.appendChild(tr);
+  }
+
+  document.getElementById('playlist').appendChild(theTable);
 }
 

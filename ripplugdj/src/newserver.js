@@ -28,14 +28,14 @@ const io = new Server(server, {
 app.get('/test', (req, res) => {
   res.set("Access-Control-Allow-Origin", "https://www.youtube.com/")
   res.set("Cross-Origin-Resource-Policy", "cross-origin")
-  res.sendFile(__dirname + '/test.php');
+  res.sendFile(__dirname + '/test.html');
   app.use(express.static(__dirname+"/public"))
 });
 app.get('/', (req, res) => {
   res.set("Access-Control-Allow-Origin", "https://www.youtube.com/")
   res.set("Cross-Origin-Resource-Policy", "cross-origin")
   res.set("Same-Site", "None")
-  res.sendFile(__dirname + '/index.php');
+  res.sendFile(__dirname + '/index.html');
   app.use(express.static(__dirname+"/public"))
 });
 

@@ -123,8 +123,8 @@ io.on("connection", (socket)=>{
       insert(arg)
     }
     else if(event == "skip"){
-      clearInterval(call)
       scrap();
+      clearInterval(call)
     }
   })  
 })

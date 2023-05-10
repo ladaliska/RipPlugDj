@@ -123,11 +123,6 @@ skipBtn.onclick = function insert(){
   socket.emit("skip")
 }
 
-var resBtn = document.getElementById("LowRes")
-resBtn.onclick = function(){
-  player.setPlaybackQuality("small")
-}
-
 function createTable(playlist){
   var theTable = document.createElement('table');
   theTable.setAttribute("id", "table")

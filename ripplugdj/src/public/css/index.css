@@ -26,15 +26,33 @@ a {
   padding: 5px 0;
 }
 
-table{
-  color: white;
-  border: 1px solid;
+table {
   border-collapse: collapse;
+  width: 100%;
 }
-tr:first-child{
-  background-color: red;
-  color: black
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
 }
-tr {
-  border: 1px solid
+
+th {
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: bold;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tr:hover {
+  background-color: #ddd;
+}
+
+.playlist-item {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.4;
 }

@@ -130,7 +130,6 @@ function sendPlaylist(socket){
   }
 
 io.on("connection", (socket)=>{
-  //console.log("connected:",socket["id"])
   socket.onAny((event, arg) => {
     if (event == "ready"){
       sendPlaylist(socket)

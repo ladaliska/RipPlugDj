@@ -10,6 +10,44 @@ body {
   background-color: #111;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  padding: 10px;
+}
+
+.grid-container > div {
+  background-color: #363636;
+  text-align: center;
+  padding: 20px 0;
+  font-size: 30px;
+}
+
+.search {
+  width: 33%;
+}
+
+.playercon {
+  width: 33%;
+}
+
+.playlist {
+  width: 33%;
+}
+
+.fill {
+  background-color: #fff;
+  text-align: center;
+  width: 384px;
+  height: 216px;
+}
+
+.player {
+  position:absolute;
+  top: 10px;
+}
+
 p {
   color:#ffffff
 }
@@ -27,6 +65,7 @@ a {
 }
 
 table{
+  margin: 0;
   color: white;
   border: 1px solid;
   border-collapse: collapse;

@@ -21,15 +21,15 @@
 
 <body>
   <script type="module" src="./js/iframe.js"></script>
-  <div id="player"></div>
-  <div id="whole">
-    <div id="env">
-      <br id="spacer">
-      <input id="slide" type="range" min="0" max="100" step="1" value="10">
-      <p>Insert YT url</p>
-      <input type="text" id="field" value="" />
+  <div class="container">
+    <div class="search">
+      <input type="text" id="field" value=""/>
       <button id="submit">insert</button>
-      <br id="sub">
+    </div>
+    <div class="playercon">
+      <div class="fill">Probably no song playing :P</div>
+      <div id="player" class="player"></div>
+      <input id="slide" type="range" min="0" max="100" step="1" value="10">
       <button id="skipBtn">Skip this video</button>
     </div>
     <div id="playlist">

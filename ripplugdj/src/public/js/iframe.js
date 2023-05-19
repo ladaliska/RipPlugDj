@@ -57,10 +57,9 @@ socket.on("time", (arg) => {
     YT.ready(function() {
         player = new window.YT.Player('player', {
             videoId: id, // YouTube Video ID
-            width: 420, // Player width (in px)
-            height: 380, // Player height (in px)
+            width: 	384, // Player width (in px)
+            height: 216, // Player height (in px)
             playerVars: {
-                vq: "240p",
                 start: time,
                 autoplay: 1, // Auto-play the video on load
                 controls: 0, // Show pause/play buttons in player
@@ -102,6 +101,7 @@ socket.on("time", (arg) => {
 function prepfornext(){
   var newplayer = document.createElement("div")
   newplayer.setAttribute("id", "player")
+  newplayer.setAttribute("class", "player")
   document.getElementById("player").replaceWith(newplayer)
 }
 
@@ -126,7 +126,7 @@ skipBtn.onclick = function insert(){
 function createTable(playlist){
   var theTable = document.createElement('table');
   theTable.setAttribute("id", "table")
-  for (var i = 0, tr, td; i < playlist.length; i++) {
+  for (var i = 0, tr, td; i < playlist.length && i < 15; i++) {
       tr = document.createElement('tr');
       td = document.createElement('td');
       td.appendChild(document.createTextNode(playlist[i]));
@@ -140,4 +140,8 @@ function createTable(playlist){
 function clearTable(){
   var theTable = document.getElementById("table")
   theTable.remove()
+}
+
+function searchSong(url){
+
 }

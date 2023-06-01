@@ -1,17 +1,18 @@
-# RipPlugDj (commandy, který si nechci pamatovat)
+# [RipPlugDj](https://test.starraria.eu) 
+K synchronyzovanému sledování Youtube videí.
 
-## Start WebServer
-php -S localhost:8000
+## RoadMap
+![Roadmap Image](https://github.com/ladaliska/RipPlugDj/blob/main/roadmap.png)
 
-## Aby fungoval ve chromu
-chrome.exe --autoplay-policy=no-user-gesture-require
+## Pro spuštění serveru (docker)
+```
+./ripplugdj docker-compose up -d --build
+```
 
-## CMD
-set path=C:\xampp\php\php.exe;c:/xampp/bin/php
+## Ukázka webu
+![Ukázka webu](https://github.com/ladaliska/RipPlugDj/blob/main/demo.png)
 
-## Build
-docker-compose up -d --build
-
-# Pro spuštění stačí stáhnout repo a v cmd pustit Build... Běží na localhost:3000 nebo na https://test.starraria.eu (není updatovaná ale funkce to má stejné)
-To popup okno je kvůli Google který zakázali autoplay se zvukem... 
-https://developer.chrome.com/blog/autoplay/
+## Využité technologie
+JS, html, css\
+NodeJS\
+[Google Youtube Api](https://developers.google.com/youtube/iframe_api_reference)

@@ -62,7 +62,7 @@ socket.on("time", (arg) => {
             playerVars: {
                 start: time,
                 autoplay: 1, // Auto-play the video on load
-                controls: 0, // Show pause/play buttons in player
+                controls: 1, // Show pause/play buttons in player
                 showinfo: 0, // Hide the video title
                 modestbranding: 1, // Hide the Youtube Logo
                 loop: 1, // Run the video in a loop
@@ -83,6 +83,7 @@ socket.on("time", (arg) => {
     function onPlayerStateChange(event) {
       var videoStatuses = Object.entries(window.YT.PlayerState);
       console.log(videoStatuses.find(status => status[1] === event.data)[0]);
+      player.setPlaybackQuality("small");
       if (videoStatuses.find(status => status[1] === event.data)[0] == "ENDED"){
         prepfornext();
       }

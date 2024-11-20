@@ -1,41 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="./css/index.css">
-  <script type="importmap">
-    {
-      "imports": {
-        "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/index.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "socket.io-client": "https://cdn.socket.io/4.4.1/socket.io.esm.min.js"
+        }
       }
-    }
-  </script>
-  <script type="text/javascript" id="www-widgetapi-script"
-    src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js" async=""></script>
-  <script src="https://www.youtube.com/player_api"></script>
-</head>
+    </script>
+    <script
+      type="text/javascript"
+      id="www-widgetapi-script"
+      src="https://s.ytimg.com/yts/jsbin/www-widgetapi-vflS50iB-/www-widgetapi.js"
+      async=""
+    ></script>
+    <script src="https://www.youtube.com/player_api"></script>
+  </head>
 
-<body>
-  <script type="module" src="./js/iframe.js"></script>
-  <div class="container">
-    <div class="search">
-      <p>Insert YT URL</p>
-      <input type="text" id="field" value=""/>
-      <button id="submit">insert</button>
+  <body>
+    <script type="module" src="./js/iframe.js"></script>
+    <div class="container">
+      <div class="search">
+        <p>Insert YT URL</p>
+        <input type="text" id="field" value="" />
+        <button id="submit">insert</button>
+      </div>
+      <div class="playercon">
+        <div class="fill">Probably no song playing :P</div>
+        <div id="player" class="player"></div>
+        <input id="slide" type="range" min="0" max="100" step="1" value="10" />
+        <button id="skipBtn">Skip this video</button>
+      </div>
+      <div id="playlist">
+        <table id="table"></table>
+      </div>
     </div>
-    <div class="playercon">
-      <div class="fill">Probably no song playing :P</div>
-      <div id="player" class="player"></div>
-      <input id="slide" type="range" min="0" max="100" step="1" value="10">
-      <button id="skipBtn">Skip this video</button>
-    </div>
-    <div id="playlist">
-      <table id="table"></table>
-    </div>
-  </div>
-</body>
+  </body>
 </html>

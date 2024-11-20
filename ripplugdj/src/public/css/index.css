@@ -44,12 +44,12 @@ body {
 }
 
 .player {
-  position:absolute;
+  position: absolute;
   top: 10px;
 }
 
 p {
-  color:#ffffff
+  color: #ffffff;
 }
 
 a {
@@ -64,16 +64,16 @@ a {
   padding: 5px 0;
 }
 
-table{
+table {
   margin: 0;
   color: white;
   border: 1px solid;
   border-collapse: collapse;
 }
-tr:first-child{
+tr:first-child {
   background-color: red;
-  color: black
+  color: black;
 }
 tr {
-  border: 1px solid
+  border: 1px solid;
 }

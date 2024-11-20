@@ -5,7 +5,10 @@ COPY "src" "/app"
 
 WORKDIR /app
 
-RUN npm install --production
+RUN npm ci
+RUN tsc --project tsconfig.json
+RUN cp -r /app/public /app/dist/public
+RUN cp -r /app/config /app/dist/config
 
-RUN cp /app/config/config.json.example /app/config/config.json
-CMD [ "node", "newserver.js" ]
+RUN cp /app/dist/config/config.json.example /app/dist/config/config.json
+CMD [ "node", "./dist/server/main.js" ]
